@@ -2,11 +2,9 @@ package connect
 
 import (
 	"fmt"
-	"log"
-	"time"
-
 	"github.com/hashicorp/terraform/helper/schema"
-	kc "github.com/ricardo-ch/go-kafka-connect/lib/connectors"
+	kc "github.com/razbomi/go-kafka-connect/lib/connectors"
+	"log"
 )
 
 func kafkaConnectorResource() *schema.Resource {
@@ -36,18 +34,10 @@ func kafkaConnectorResource() *schema.Resource {
 }
 
 func connectorCreate(d *schema.ResourceData, meta interface{}) error {
-	c := meta.(kc.Client)
+	c := meta.(kc.HighLevelClient)
 	name := nameFromRD(d)
 	config := configFromRD(d)
-	if !kc.TryUntil(
-		func() bool {
-			_, err := c.GetAll()
-			return err == nil
-		},
-		5*time.Minute,
-	) {
-		return fmt.Errorf("timed out trying to connect to kafka-connect server at %s", c.URL)
-	}
+
 	req := kc.CreateConnectorRequest{
 		ConnectorRequest: kc.ConnectorRequest{
 			Name: name,
@@ -70,7 +60,7 @@ func nameFromRD(d *schema.ResourceData) string {
 }
 
 func connectorDelete(d *schema.ResourceData, meta interface{}) error {
-	c := meta.(kc.Client)
+	c := meta.(kc.HighLevelClient)
 
 	name := nameFromRD(d)
 	req := kc.ConnectorRequest{
@@ -78,8 +68,8 @@ func connectorDelete(d *schema.ResourceData, meta interface{}) error {
 	}
 
 	fmt.Printf("[INFO] Deleing the connector %s\n", name)
-
 	_, err := c.DeleteConnector(req, true)
+
 	if err == nil {
 		d.SetId("")
 	}
@@ -88,7 +78,7 @@ func connectorDelete(d *schema.ResourceData, meta interface{}) error {
 }
 
 func connectorUpdate(d *schema.ResourceData, meta interface{}) error {
-	c := meta.(kc.Client)
+	c := meta.(kc.HighLevelClient)
 
 	name := nameFromRD(d)
 	config := configFromRD(d)
@@ -112,7 +102,7 @@ func connectorUpdate(d *schema.ResourceData, meta interface{}) error {
 }
 
 func connectorRead(d *schema.ResourceData, meta interface{}) error {
-	c := meta.(kc.Client)
+	c := meta.(kc.HighLevelClient)
 
 	name := d.Get("name").(string)
 	req := kc.ConnectorRequest{
@@ -129,16 +119,6 @@ func connectorRead(d *schema.ResourceData, meta interface{}) error {
 	return err
 }
 
-func configFromRD(d *schema.ResourceData) map[string]string {
-	cfg := d.Get("config").(map[string]interface{})
-	config := make(map[string]string)
-
-	for k, v := range cfg {
-		switch v := v.(type) {
-		case string:
-			config[k] = v
-		}
-	}
-
-	return config
+func configFromRD(d *schema.ResourceData) map[string]interface{} {
+	return d.Get("config").(map[string]interface{})
 }
