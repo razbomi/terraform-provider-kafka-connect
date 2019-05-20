@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/terraform/helper/schema"
-	kc "github.com/ricardo-ch/go-kafka-connect/lib/connectors"
+	kc "github.com/razbomi/go-kafka-connect/lib/connectors"
 )
 
 func kafkaConnectorResource() *schema.Resource {
@@ -36,7 +36,7 @@ func kafkaConnectorResource() *schema.Resource {
 }
 
 func connectorCreate(d *schema.ResourceData, meta interface{}) error {
-	c := meta.(kc.Client)
+	c := meta.(kc.HighLevelClient)
 	name := nameFromRD(d)
 	config := configFromRD(d)
 	if !kc.TryUntil(
