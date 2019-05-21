@@ -50,7 +50,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:7ca46b27189ed8fb546c33a5b9573dece77e0d55880d3e9ca7d51ff7ffdd2f90"
+  digest = "1:e3c4f9cae79394762bbc62ed0f29ec7706931201bb68de95233e5500771e3c9e"
   name = "github.com/aws/aws-sdk-go"
   packages = [
     "aws",
@@ -80,6 +80,7 @@
     "private/protocol",
     "private/protocol/eventstream",
     "private/protocol/eventstream/eventstreamapi",
+    "private/protocol/json/jsonutil",
     "private/protocol/query",
     "private/protocol/query/queryutil",
     "private/protocol/rest",
@@ -89,8 +90,8 @@
     "service/sts",
   ]
   pruneopts = "NUT"
-  revision = "52cd98f1ed1857be47c069f1b27a5dbebb0c1995"
-  version = "v1.19.30"
+  revision = "3e3b24dd55ca4bb508c7e78142632646ee6e8714"
+  version = "v1.19.34"
 
 [[projects]]
   branch = "master"
@@ -275,7 +276,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:97bec72c8a0f05bd3e202e53c9c82ccf38b35a48f6ce217327017d25ca86ca8a"
+  digest = "1:e3b23d532c865a59a0cee3c323f5e0fd4cd731cb2ea48d3f89fbfb5396b9d0b9"
   name = "github.com/hashicorp/hcl2"
   packages = [
     "gohcl",
@@ -287,7 +288,7 @@
     "hclwrite",
   ]
   pruneopts = "NUT"
-  revision = "6a61d80ae3d01de3db5dfa759b3950fb28bace58"
+  revision = "4b22149b7cef7272799ac85dca150e553d667971"
 
 [[projects]]
   branch = "master"
@@ -311,7 +312,7 @@
   version = "v1.0.0"
 
 [[projects]]
-  digest = "1:02220d66df6a09b9d3cabc859fbbe2a78ce345863b361cc8e4030c19d669f0d1"
+  digest = "1:10d21322639847404e1ed3c724600c4c283dc1c43a2dfc15665ed4658e7fea4f"
   name = "github.com/hashicorp/terraform"
   packages = [
     "config",
@@ -341,8 +342,8 @@
     "version",
   ]
   pruneopts = "NUT"
-  revision = "d48069534832fdb09919a5fe46500755540cbf0a"
-  version = "v0.11.13"
+  revision = "12bf5f6afec2a9dcc97357671fdfa9fb972884eb"
+  version = "v0.11.14"
 
 [[projects]]
   branch = "master"
@@ -478,11 +479,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:3b4ddd2a4e932e36bc3ea00a7dcbdf31d1d8058b019ab0794c20a230429dcc01"
+  digest = "1:894d6a943a90a9763628634b37a19e3067af40d64a41bd85894f2c518bfae67f"
   name = "github.com/razbomi/go-kafka-connect"
   packages = ["lib/connectors"]
   pruneopts = "NUT"
-  revision = "eebdc7701928e9d89e067b2a74a4db8d1f1f99a2"
+  revision = "9a1e84540bf38217518aed7d181e42825db94b42"
 
 [[projects]]
   digest = "1:60a46e2410edbf02b419f833372dd1d24d7aa1b916a990a7370e792fada1eadd"
@@ -518,7 +519,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:5551c41ba6bb2f49654d451d329062014986799fd227ce37185f423eeb9900d8"
+  digest = "1:20284257397bd2f4ae2c70b1e5d257e43a8fbcabfb7f3c18777b5b8a74f70cf6"
   name = "github.com/zclconf/go-cty"
   packages = [
     "cty",
@@ -530,7 +531,7 @@
     "cty/set",
   ]
   pruneopts = "NUT"
-  revision = "f22aff679d507e209d0f82b7f20efe0b894075fb"
+  revision = "4fecf87372ec204b46eb9e8ff264cdc3cafdccfe"
 
 [[projects]]
   digest = "1:aafe0319af5410fb19a23a575ea6ee4b14253e122ef87f936bac65ea1e6b280c"
@@ -593,11 +594,11 @@
     "trace",
   ]
   pruneopts = "NUT"
-  revision = "3ec19112720433827bbce8be9342797f5a6aaaf9"
+  revision = "018c4d40a106a7ae83689758294fcd8d23850745"
 
 [[projects]]
   branch = "master"
-  digest = "1:3121d742fbe48670a16d98b6da4693501fc33cd76d69ed6f35850c564f255c65"
+  digest = "1:5b74d223770fed93d5155a7c586e4f7dee8f3fdff688d2df9770d9d5c11abfd0"
   name = "golang.org/x/oauth2"
   packages = [
     ".",
@@ -607,15 +608,15 @@
     "jwt",
   ]
   pruneopts = "NUT"
-  revision = "9f3314589c9a9136388751d9adae6b0ed400978a"
+  revision = "950ef44c6e079baf075030377d90bf0c7e4b7b7a"
 
 [[projects]]
   branch = "master"
-  digest = "1:3e12290ba2a11b1b76267ee1584b2415f5f1621f34426fd75675003f98fe0249"
+  digest = "1:b62d748a63dd97bbae1ae91805ee2ed5890537580e824c10ed17ba3b6226cb7c"
   name = "golang.org/x/sys"
   packages = ["unix"]
   pruneopts = "NUT"
-  revision = "3a4b5fb9f71f5874b2374ae059bc0e0bcb52e145"
+  revision = "c432e742b0af385916e013f6a34e9e73d139cf82"
 
 [[projects]]
   digest = "1:8d8faad6b12a3a4c819a3f9618cb6ee1fa1cfc33253abeeea8b55336721e3405"
@@ -682,7 +683,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:9ed74b6fe73759dbf5c8d4f268476879460d5c3cc777351a0f988e0b5dcbf698"
+  digest = "1:1d7e4e8b75502678019b764e524684c25aeeb855ef93f0d5b52fd66e834a5d17"
   name = "google.golang.org/genproto"
   packages = [
     "googleapis/api/annotations",
@@ -692,7 +693,7 @@
     "googleapis/type/expr",
   ]
   pruneopts = "NUT"
-  revision = "d00d292a067ce1aa0017b40ca75437b42461fa61"
+  revision = "bb713bdc0e5239f2b68e560efbe1c701a6fe78f9"
 
 [[projects]]
   digest = "1:6afefb3e487fbe8a9db2a4bb81cedd7670423bbfea6f82b67b44e9ea3131f502"

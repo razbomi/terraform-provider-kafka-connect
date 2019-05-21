@@ -1,6 +1,7 @@
 package connect
 
 import (
+	"crypto/tls"
 	"log"
 
 	"github.com/hashicorp/terraform/helper/schema"
@@ -43,8 +44,12 @@ func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	certFile := d.Get("client_cert").(string)
 	keyFile := d.Get("client_key").(string)
 
-	if len(certFile) + len(keyFile) > 0 {
-		c.SetClientCertificates(certFile, keyFile)
+	if len(certFile) > 0 && len(keyFile) > 0 {
+		cert, err := tls.LoadX509KeyPair(certFile, keyFile)
+		if err != nil {
+			return nil, err
+		}
+		c.SetClientCertificates(cert)
 	}
 
 	return c, nil
