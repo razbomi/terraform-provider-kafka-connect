@@ -17,15 +17,15 @@ func Provider() terraform.ResourceProvider {
 				Optional:    true,
 				DefaultFunc: schema.EnvDefaultFunc("KAFKA_CONNECT_URL", ""),
 			},
-			"certFile": {
+			"client_cert": {
 				Type:        schema.TypeString,
 				Optional:    true,
-				DefaultFunc: schema.EnvDefaultFunc("CERT_FILE", ""),
+				DefaultFunc: schema.EnvDefaultFunc("CLIENT_CERT", ""),
 			},
-			"keyFile": {
+			"client_key": {
 				Type:        schema.TypeString,
 				Optional:    true,
-				DefaultFunc: schema.EnvDefaultFunc("KEY_FILE", ""),
+				DefaultFunc: schema.EnvDefaultFunc("CLIENT_KEY", ""),
 			},
 		},
 		ConfigureFunc: providerConfigure,
@@ -38,12 +38,12 @@ func Provider() terraform.ResourceProvider {
 func providerConfigure(d *schema.ResourceData) (interface{}, error) {
 	log.Printf("[INFO] Initializing KafkaConnect client")
 	addr := d.Get("url").(string)
-	keyFile := d.Get("keyFile").(string)
-	certFile := d.Get("certFile").(string)
+	certFile := d.Get("client_cert").(string)
+	keyFile := d.Get("client_key").(string)
 
 	c := kc.NewClient(addr)
 	if len(keyFile)+len(certFile) > 0 {
-		c.SetClientCertificates(keyFile, certFile)
+		c.SetClientCertificates(certFile, keyFile)
 	}
 
 	return c, nil

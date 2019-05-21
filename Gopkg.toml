@@ -4,7 +4,7 @@
 
 [[constraint]]
   branch = "master"
-  name = "github.com/ricardo-ch/go-kafka-connect"
+  name = "github.com/razbomi/go-kafka-connect"
 
 [prune]
   go-tests = true
