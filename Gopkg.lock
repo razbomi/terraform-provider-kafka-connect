@@ -408,14 +408,6 @@
   revision = "eebdc7701928e9d89e067b2a74a4db8d1f1f99a2"
 
 [[projects]]
-  branch = "master"
-  digest = "1:958dbe53cc3625c4cdab14bc7f8a92135a66ab72d47d6ba75fd9999b73c946bd"
-  name = "github.com/ricardo-ch/go-kafka-connect"
-  packages = ["lib/connectors"]
-  pruneopts = "NUT"
-  revision = "132b7b7ad380a6c860fecc0ca9b0a2af9bf45471"
-
-[[projects]]
   digest = "1:6bc0652ea6e39e22ccd522458b8bdd8665bf23bdc5a20eec90056e4dc7e273ca"
   name = "github.com/satori/go.uuid"
   packages = ["."]
@@ -597,7 +589,6 @@
     "github.com/hashicorp/terraform/plugin",
     "github.com/hashicorp/terraform/terraform",
     "github.com/razbomi/go-kafka-connect/lib/connectors",
-    "github.com/ricardo-ch/go-kafka-connect/lib/connectors",
   ]
   solver-name = "gps-cdcl"
   solver-version = 1
