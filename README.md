@@ -1,12 +1,11 @@
 # `terraform-plugin-kafka-connect`
-[![CircleCI](https://circleci.com/gh/Mongey/terraform-provider-kafka-connect.svg?style=svg)](https://circleci.com/gh/Mongey/terraform-provider-kafka-connect)
 
 A [Terraform][1] plugin for managing [Apache Kafka Connect][2].
 
 ## Installation
 
 Download and extract the [latest
-release](https://github.com/Mongey/terraform-provider-kafka-connect/releases/latest) to
+release](https://github.com/razbomi/terraform-provider-kafka-connect/releases/latest) to
 your [terraform plugin directory][third-party-plugins] (typically `~/.terraform.d/plugins/`)
 
 ## Example
