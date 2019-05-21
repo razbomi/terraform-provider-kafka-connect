@@ -17,7 +17,8 @@ Configure the provider directly by setting the following Env Variables:
 ```hcl
 provider "kafka-connect" {
   url = "https://kafka-connect.dev.moneynp.xinja.com.au"
-
+  certFile = "client.pem"
+  keyFile = "client.key"
 }
 
 resource "kafka-connect_connector" "test" {
