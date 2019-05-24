@@ -12,6 +12,6 @@ test:
 		xargs -t -n4 go test $(TESTARGS) -timeout=30s -parallel=4
 
 testacc:
-	KAFKA_CONNECT_URL=$(URL) CLIENT_CERT=$(CERT) CLIENT_KEY=$(KEY) TF_LOG=debug TF_ACC=1 go test $(TEST) -v $(TESTARGS) -timeout 120m
+	KAFKA_CONNECT_URL=$(URL) KAFKA_CLIENT_CERT=$(CERT) KAFKA_CLIENT_KEY=$(KEY) TF_LOG=debug TF_ACC=1 go test $(TEST) -v $(TESTARGS) -timeout 120m
 
 .PHONY: build test testacc

@@ -18,11 +18,11 @@ var urlEnvVars = []string{
 }
 
 var certEnvVars = []string{
-	"CLIENT_CERT",
+	"KAFKA_CLIENT_CERT",
 }
 
 var keyEnvVars = []string{
-	"CLIENT_KEY",
+	"KAFKA_CLIENT_KEY",
 }
 
 func init() {
