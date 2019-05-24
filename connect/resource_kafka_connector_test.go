@@ -51,9 +51,15 @@ func testResourceConnector_initialCheck(s *terraform.State) error {
 	}
 
 	flushSize := c.Config["flush.size"]
-	expected := "10"
-	if flushSize != expected {
-		return fmt.Errorf("flush.size should be %s, got %s connector not updated. \n %v", expected, flushSize, c.Config)
+	expectedFlushSize := "10"
+	if flushSize != expectedFlushSize {
+		return fmt.Errorf("flush.size should be %s, got %s connector not updated. \n %v", expectedFlushSize, flushSize, c.Config)
+	}
+
+	s3BucketName := c.Config["s3.bucket.name"]
+	expectedS3BucketName := "xinja-data-nonprod-platform-events"
+	if s3BucketName != expectedS3BucketName {
+		return fmt.Errorf("flush.size should be %s, got %s connector not updated. \n %v", expectedS3BucketName, s3BucketName, c.Config)
 	}
 
 	return nil
@@ -66,11 +72,18 @@ func testResourceConnector_updateCheck(s *terraform.State) error {
 	if err != nil {
 		return err
 	}
-
+	// Test flushsize update
 	flushSize := c.Config["flush.size"]
 	expected := "3"
 	if flushSize != expected {
 		return fmt.Errorf("flush.size should be %s, got %s connector not updated. \n %v", expected, flushSize, c.Config)
+	}
+
+	// Test constant bucket name
+	s3BucketName := c.Config["s3.bucket.name"]
+	expectedS3BucketName := "xinja-data-nonprod-platform-events"
+	if s3BucketName != expectedS3BucketName {
+		return fmt.Errorf("flush.size should be %s, got %s connector not updated. \n %v", expectedS3BucketName, s3BucketName, c.Config)
 	}
 
 	return nil
